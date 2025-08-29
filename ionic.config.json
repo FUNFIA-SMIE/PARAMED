@@ -1,0 +1,7 @@
+{
+  "name": "PARAMED",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
