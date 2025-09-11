@@ -18,7 +18,7 @@ RUN npm list typescript
 COPY . .
 
 # Step 6: Build the Angular app for production
-RUN npm ionic build
+RUN ionic build
 
 # Step 7: Use a lightweight web server to serve the app
 FROM nginx:alpine
