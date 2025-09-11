@@ -1,20 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header [translucent]="true" >
+  <ion-toolbar style="background-color: #3879f7;" color="#ffe94f">
+    <ion-title style="color: #ffe94f;">
+      <img
+        src="../../../assets/455316869_122110964966444394_7713516157255301446_n.jpg"
+        alt="Logo" style="height:24px; margin-right:8px; vertical-align:middle;">
+      FUNFIA
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content [fullscreen]="true" class="custom-background">
+  <ion-grid>
+    <ion-row>
+      
+      <!-- Patients en attente -->
+      <ion-col size="6">
+        <ion-card button routerLink="/patient-attente" class="card-patient">
+          <ion-card-content class="ion-text-center">
+            <ion-icon name="people-outline" size="large" color="medium"></ion-icon>
+            <h2>Patients en attente</h2>
+            <ion-badge color="danger" class="rounded-pill">{{ patientsAttente }}</ion-badge>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Patients pris en charge -->
+      <ion-col size="6">
+        <ion-card button routerLink="/patient-pec" class="card-patient">
+          <ion-card-content class="ion-text-center">
+            <ion-icon name="checkmark-done-circle-outline" size="large" color="success"></ion-icon>
+            <h2>Pris en charge</h2>
+            <ion-badge color="success" class="rounded-pill">{{ patientsPris }}</ion-badge>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 </ion-content>

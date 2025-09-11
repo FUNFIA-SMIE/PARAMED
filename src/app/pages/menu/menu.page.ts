@@ -1,15 +1,13 @@
-import { Component } from '@angular/core';
-import { Services } from '../services/services';
+import { Component, OnInit } from '@angular/core';
+import { Services } from 'src/app/services/services';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: false,
+  selector: 'app-menu',
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
+  standalone: false
 })
-export class HomePage {
-  patientsAttente: number = 0;  // exemple
-  patientsPris: number = 0;    // exemple
+export class MenuPage implements OnInit {
   patients: any;
   constantes_listes: any;
   patients_attente: any;
@@ -18,8 +16,6 @@ export class HomePage {
   constructor(private srvc: Services) { }
 
   async ngOnInit() {
-    this.patients = await this.srvc.Consultation_jour_attente('En attente').toPromise();
-
     this.constantes_listes = await this.srvc.Liste_des_constant().toPromise();
     console.log("Constantes reçues :", this.constantes_listes);
 
@@ -31,9 +27,9 @@ export class HomePage {
       };
     })
 
-    this.patientsAttente = this.patients.filter((pa: any) => pa.constante === false).length;
-    this.patientsPris = this.patients.filter((pa: any) => pa.constante === true).length;
-
+    this.patients_attente = this.patients.filter((pa: any) => pa.constante === true);
+    this.patients_traite = this.patients.filter((pa: any) => pa.constante === false);
+ 
     console.log("après", this.patients);
 
 

@@ -1,0 +1,138 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" style="--background: #3879f7;">
+
+    <!-- Bouton retour -->
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+
+    <!-- Titre avec logo -->
+    <ion-title>
+      <div style="display:flex; align-items:center;">
+        <img src="../../../assets/455316869_122110964966444394_7713516157255301446_n.jpg" alt="Logo"
+          style="height:28px; margin-right:10px;">
+        <span style="color:#ffe94f; font-weight:bold;">Constant Patient</span>
+      </div>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container mt-3">
+
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white text-center">
+        <h5 class="">{{data.nom}} {{data.prenom}}</h5>
+        <h5 class=""> ( {{data.entreprise}} )</h5>
+      </div>
+      <div class="card-body">
+
+        <form (ngSubmit)="onSubmit()" #constForm="ngForm">
+          <div class="row g-3">
+
+            <!-- Température -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="0.1" class="form-control" id="temperature" placeholder="Température (°C)"
+                  name="temperature" [(ngModel)]="constantes.temperature" required>
+                <label for="temperature">Température (°C)</label>
+              </div>
+            </div>
+
+            <!-- Pouls -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="pouls" placeholder="Pouls (bpm)" name="pouls"
+                  [(ngModel)]="constantes.pouls" required>
+                <label for="pouls">Pouls (bpm)</label>
+              </div>
+            </div>
+
+            <!-- Tension artérielle -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="tension" placeholder="Tension artérielle" name="tension"
+                  [(ngModel)]="constantes.tension" required>
+                <label for="tension">Tension artérielle (ex: 120/80)</label>
+              </div>
+            </div>
+
+            <!-- Fréquence respiratoire -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="frequenceResp" placeholder="Fréquence respiratoire"
+                  name="frequenceResp" [(ngModel)]="constantes.frequenceResp" required>
+                <label for="frequenceResp">Fréquence respiratoire (resp/min)</label>
+              </div>
+            </div>
+
+            <!-- Saturation -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="1" class="form-control" id="saturation" placeholder="Saturation en oxygène"
+                  name="saturation" [(ngModel)]="constantes.saturation" required>
+                <label for="saturation">Saturation en O₂ (%)</label>
+              </div>
+            </div>
+
+            <!-- Poids -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="0.1" class="form-control" id="poids" placeholder="Poids (kg)" name="poids"
+                  [(ngModel)]="constantes.poids" required>
+                <label for="poids">Poids (kg)</label>
+              </div>
+            </div>
+
+            <!-- Taille -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="0.01" class="form-control" id="taille" placeholder="Taille (m)" name="taille"
+                  [(ngModel)]="constantes.taille" required>
+                <label for="taille">Taille (m)</label>
+              </div>
+            </div>
+
+            <!-- IMC -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="0.1" class="form-control" id="imc" placeholder="IMC" name="imc"
+                  [(ngModel)]="constantes.imc" required>
+                <label for="imc">IMC</label>
+              </div>
+            </div>
+
+            <!-- SAO2 -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="number" step="1" class="form-control" id="sao2" placeholder="SAO2 (%)" name="sao2"
+                  [(ngModel)]="constantes.sao2" required>
+                <label for="sao2">SAO2 (%)</label>
+              </div>
+            </div>
+
+            <!-- Dextrose -->
+            <div class="col-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="dextrose" placeholder="Dextrose" name="dextrose"
+                  [(ngModel)]="constantes.dextrose">
+                <label for="dextrose">Dextrose</label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bouton envoyer -->
+          <button type="submit" class="btn btn-primary w-100 mt-4 shadow-sm">
+            Enregistrer
+          </button>
+        </form>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
