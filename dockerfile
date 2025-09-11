@@ -1,5 +1,5 @@
 # Étape 1 : Build de l’application Ionic Angular
-FROM node:18 AS build
+FROM node:20.19.0 AS build
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN npm install -g @ionic/cli && npm install
 COPY . .
 
 # Build en mode production
-RUN ionic build --prod
+RUN ionic build
 
 # Étape 2 : Utiliser Nginx pour servir l’app
 FROM nginx:1.25
