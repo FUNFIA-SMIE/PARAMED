@@ -1,4 +1,4 @@
-# Étape 1 : Build de l’application Ionic Angular
+# Étape 1 : Build de l’application Ionic Angulard
 FROM node:20.19.0 AS build
 
 WORKDIR /app
