@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer les dépendances
-RUN npm install -g @ionic/cli && npm install
+RUN npm install -g @ionic/cli && npm install --legacy-peer-deps
 
 # Copier tout le code
 COPY . .
